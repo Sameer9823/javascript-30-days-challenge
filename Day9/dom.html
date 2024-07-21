@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="head"></div>
+    <div class="sam">rem kvlr</div>
+    <div class="aa">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores qui non tempore, quisquam, nesciunt cumque dolorum nemo praesentium id inventore, ab at placeat omnis dicta neque reiciendis eos a accusantium.</div>
+    <ul id="ul"></ul>
+    <h1 class="heading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ullam consequatur? Accusantium aut consequatur accusamus atque, id asperiores odio nihil minima repellendus cupiditate voluptas nulla blanditiis laudantium numquam magnam soluta!</h1>
+    <ul class="last">
+        <li>sameer</li>
+        <li>sameer</li>
+        <li>sameer</li>
+        <li>sameer</li>
+    </ul>
+
+    <p style="text-align: center; color: blue; background: #a04949; font-size: larger;" class="para">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus maiores rem qui praesentium sed maxime fugiat quidem earum nostrum id. Quasi beatae nulla quo neque reprehenderit dolores eligendi repellat eos!</p>
+    <img class="img" src="https://images.pexels.com/photos/26775381/pexels-photo-26775381/free-photo-of-black-and-white-photograph-of-sand-dunes-in-the-desert.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="">
+
+    <div class="rt">
+        <button class="btn">submit</button>
+        <p class="change">Lorem ipsum dolor sit amet.</p>
+    </div>
+
+    <button class="btn2" style="padding-inline: 4rem; padding-block: 2rem; border: 2px solid red;"> button </button>
+    <script>
+        const head = document.getElementsByClassName('head')
+        const sam = document.getElementsByClassName('sam')
+        const heading = document.getElementsByClassName('heading')
+        
+        
+
+        head[0].innerHTML = 'hello world'
+        sam[0].style.backgroundColor = 'red'
+        const div = document.createElement('div')
+        div.innerHTML = 'hello world'
+        document.body.appendChild(div)
+
+
+        const ul = document.getElementById('ul')
+        const li = document.createElement('li')
+        li.innerHTML = 'hello world'
+     
+        ul.appendChild(li)
+
+        heading[0].remove()
+
+        const ulElement = document.querySelector('.last');
+
+        if (ulElement && ulElement.lastElementChild) {
+        ulElement.removeChild(ulElement.lastElementChild);
+        }
+
+        
+        const img = document.querySelector('.img');
+        img.setAttribute('src', 'https://images.pexels.com/photos/10147934/pexels-photo-10147934.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load')
+
+       
+        const para = document.querySelector('.para')
+        para.style.backgroundColor = 'white'
+        para.style.color = 'yellow'
+        para.style.fontSize = 'x-large'
+
+
+        const btn = document.querySelector('.btn')
+        btn.addEventListener('click', function() {
+            const change = document.querySelector('.change')
+            change.innerHTML = 'hello world'
+            })
+
+
+
+        const btn2 = document.querySelector('.btn2')
+        btn2.addEventListener('mouseover', function() {
+            btn2.style.border = '2px solid blue'
+            })
+
+        
+
+        
+
+    </script>
+</body>
+</html>
