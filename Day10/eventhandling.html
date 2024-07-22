@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img.hidden {
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="para">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut maxime, vero earum nemo excepturi quas ratione hic saepe obcaecati. Magni aliquid voluptatum reiciendis pariatur sapiente doloremque vero sunt impedit ipsam!
+    </div>
+    <button class="btn">submit</button>
+    <div class="img">
+        <img class="img1" src="https://images.pexels.com/photos/4400679/pexels-photo-4400679.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="">
+    </div>
+    <div class="background">
+        <p class="par">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius ut excepturi error maiores obcaecati harum voluptas assumenda deleniti amet exercitationem, consequuntur nam eaque quaerat explicabo delectus aperiam mollitia, nisi praesentium.</p>
+    </div>
+    <div>
+        <input type="text">
+        <input type="text" class="input">
+    </div>
+
+    <form class="form" action="">
+        <input class="name" type="text" name="name" id="name" placeholder="name">
+        <input class="mail" type="text" name="email" id="email" placeholder="email">
+        <input class="submit" type="submit" value="submit">
+        </form>
+    </form>
+    <div>
+        <select name="item" id="item">
+            <option value="1">sam</option>
+            <option value="2">geet</option>
+            <option value="3">moon</option>
+            <option value="4">vaish</option>
+        </select>
+        <p class="itm">Lorem ipsum dolor sit amet.</p>
+        <ul class="ul">
+            <li>sameer</li>
+            <li>sameer</li>
+        </ul>
+    </div>
+
+    <div class="parent">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas nemo iure nostrum cum eum ullam perspiciatis voluptas, expedita repudiandae, vitae temporibus numquam earum fugiat quaerat quis vel dolorem aut odit!</p>
+    </div>
+    <script>
+        const btn = document.querySelector('.btn');
+        btn.addEventListener('click', function(){
+            const para = document.querySelector('.para');
+            para.style.color = 'red';
+            para.innerHTML = 'javascript is a highly interpreter language'
+            })
+
+        const img = document.querySelector('.img1');
+        img.addEventListener('dblclick', function(){
+            img.classList.toggle('hidden')
+            })
+
+        const background = document.querySelector('.background');
+                background.addEventListener('mouseover', function(){
+                background.style.backgroundColor = 'red'
+        })
+
+        background.addEventListener('mouseout', function(){
+            background.style.backgroundColor = 'yellow'
+        })
+
+        const input = document.querySelector('input');
+        input.addEventListener('keydown', function(e){
+            console.log(e.key)
+        })
+        
+        const input2 = document.querySelector('.input');
+        input2.addEventListener('keyup', function(e){
+            input2.value = e.key
+            })
+
+    
+        const form = document.querySelector('.form');
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+            console.log(form.name.value)
+            console.log(form.email.value)
+            })
+
+        const select = document.querySelector('#item');
+        select.addEventListener('change', function(e){
+            const para = document.querySelector('.itm');
+            para.innerHTML = e.target.value
+            })
+
+            const ul = document.querySelector('.ul');
+            ul.addEventListener('click', function(e){
+                console.log(e.target.textContent)
+                })
+
+            const parent = document.querySelector('.parent');
+            parent.addEventListener('click', function(e){
+                console.log(e.target.textContent)
+                })
+
+    </script>
+</body>
+</html>
