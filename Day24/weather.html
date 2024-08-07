@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Information</title>
+    <style>
+        #submit-btn:hover {
+            background-color: white;
+            color: black;
+            transition: all 0.5s;
+            transition: all;
+            transition-duration: 0.5s;
+            cursor: pointer;
+        }
+
+        #submit-btn {
+            padding-inline: 1rem; 
+            border-radius: 4px; 
+            background-color: #030ba7; 
+            color: white;
+        }
+
+            
+        
+    </style>
+</head>
+<body style=" background-color: #01001b;">
+    <div style="display: flex; justify-content: center; margin-top: 2rem;  color: white;">
+        <div>
+
+            <h1 style="text-align: center;">Weather Information</h1>
+            
+            <div style="display: flex; justify-content: center; gap: 3px;">
+                <input style="width: 12rem; height: 1.5rem; padding: 1px; border-radius: 4px;" type="text" id="city-input" placeholder="Enter a city">
+                <button style="" id="submit-btn">Submit</button>
+            </div>
+            <div style="text-align: center;" id="weather">
+                <p id="city-name"></p>
+                <p id="temperature"></p>
+                <p id="weather-condition"></p>
+                <img id="weather-image" src="" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script>
+            document.addEventListener('DOMContentLoaded', function () {
+    const apiKey = '3ccfd8a98f164c5347a39f6cc847edf5'; 
+    const cityInput = document.getElementById('city-input');
+    const submitBtn = document.getElementById('submit-btn');
+    const weatherImage = document.getElementById('weather-image');
+
+    submitBtn.addEventListener('click', function () {
+        const city = cityInput.value;
+        if (city.trim() === '') {
+            alert('Please enter a city name');
+            return;
+        }
+
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                if (data.cod === 200) {
+                    const temperature = data.main.temp;
+                    const weatherCondition = data.weather[0].description.toLowerCase();
+
+                    document.getElementById('city-name').textContent = `City: ${data.name}`;
+                    document.getElementById('temperature').textContent = `Temperature: ${temperature}°C`;
+                    document.getElementById('weather-condition').textContent = `Condition: ${weatherCondition}`;
+
+                    
+                    if (weatherCondition.includes('rain')) {
+                        weatherImage.src = 'https://images.pexels.com/photos/5505626/pexels-photo-5505626.jpeg?auto=compress&cs=tinysrgb&w=600'; 
+                    } else if (weatherCondition.includes('snow') || temperature <= 0) {
+                        weatherImage.src = 'https://images.pexels.com/photos/869258/pexels-photo-869258.jpeg?auto=compress&cs=tinysrgb&w=600'; 
+                    } else if (weatherCondition.includes('clear') || weatherCondition.includes('sun')) {
+                        weatherImage.src = 'https://images.pexels.com/photos/1209611/pexels-photo-1209611.jpeg?auto=compress&cs=tinysrgb&w=600';
+                    } else if (weatherCondition.includes('mist') || weatherCondition.includes('sun')) {
+                        weatherImage.src = 'https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&w=600';
+                    } else {
+                        weatherImage.src = 'https://images.pexels.com/photos/1263986/pexels-photo-1263986.jpeg?auto=compress&cs=tinysrgb&w=600'; 
+                    }
+                } else {
+                    alert('City not found');
+                    console.log('Error:', data);
+                }
+            })
+            .catch(error => console.log('Error:', error));
+    });
+});
+
+
+    </script>
+</body>
+</html>
