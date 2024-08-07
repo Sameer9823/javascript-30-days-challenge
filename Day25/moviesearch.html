@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: rgb(7, 9, 44);
+            color: #ffff;
+        }
+        #movie {
+            margin-top: 20px;
+        }
+        #movie img {
+            max-width: 400px;
+            height: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie Information</h1>
+    <div>
+        <input style="width: 12rem; height: 2rem;" type="text" id="search-input" placeholder="Enter movie title">
+        <button style="height: 2rem;" id="search-btn">Search</button>
+    </div>
+    <div id="movie">
+        <h2 id="movie-title"></h2>
+        <p id="release-year"></p>
+        <img width="500" id="movie-poster" src=""><br><br>
+        <button style="height: 2rem;" id="more-info">More info</button>
+        <p id="genre"></p>
+        <p id="director"></p>
+        <p id="actors"></p>
+        <p id="rating"></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const apiUrl = './main.json'; 
+            const searchInput = document.getElementById('search-input');
+            const searchBtn = document.getElementById('search-btn');
+            const movieTitleElem = document.getElementById('movie-title');
+            const releaseYearElem = document.getElementById('release-year');
+            const moviePosterElem = document.getElementById('movie-poster');
+            const moreInfoBtn = document.getElementById('more-info');
+            const genreElem = document.getElementById('genre');
+            const directorElem = document.getElementById('director');
+            const ratingElem = document.getElementById('rating');
+            const actorsElem = document.getElementById('actors');
+
+            searchBtn.addEventListener('click', function () {
+                const query = searchInput.value.trim();
+                if (query === '') {
+                    alert('Please enter a movie title');
+                    return;
+                }
+
+                fetch(apiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        const movie = data.find(movie => movie.title.toLowerCase().includes(query.toLowerCase()));
+                        if (movie) {
+                            const title = movie.title;
+                            const releaseYear = movie.year;
+                            const posterUrl = movie.poster; 
+
+                            movieTitleElem.textContent = `Title: ${title}`;
+                            releaseYearElem.textContent = `Release Year: ${releaseYear}`;
+                            moviePosterElem.src = posterUrl;
+                        } else {
+                            movieTitleElem.textContent = 'Movie not found';
+                            releaseYearElem.textContent = '';
+                            moviePosterElem.src = '';
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+
+            moreInfoBtn.addEventListener('click', function () {
+                const query = searchInput.value.trim();
+                if (query === '') {
+                    alert('Please enter a movie title');
+                    return;
+                }
+
+                fetch(apiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        const movie = data.find(movie => movie.title.toLowerCase().includes(query.toLowerCase()));
+                        if (movie) {
+                            const genre = movie.genre;
+                            const director = movie.director;
+                            const rating = movie.rating;
+                            const actors = movie.actors.join(', ');
+
+                            genreElem.textContent = `Genre: ${genre}`;
+                            directorElem.textContent = `Director: ${director}`;
+                            ratingElem.textContent = `Rating: ${rating}`;
+                            actorsElem.textContent = `Actors: ${actors}`;
+                        } else {
+                            alert('Movie not found');
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+        });
+    </script>
+</body>
+</html>
