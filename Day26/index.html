@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #03132a;
+    color:#ffff;
+}
+
+#auth-section, #chat-section {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+}
+
+#username-input {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#join-chat-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+#chat-window {
+    border: 1px solid #ccc;
+    height: 300px;
+    overflow-y: scroll;
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: left;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.sent {
+    background-color: #d4edda;
+    text-align: right;
+}
+
+.received {
+    background-color: #f8d7da;
+    text-align: left;
+}
+
+#message-input {
+    width: calc(100% - 100px);
+    height: 60px;
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    color:#03132a;
+}
+
+#send-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+#delete-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+
+#username-display {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+    </style>
+</head>
+<body>
+    <div id="auth-section">
+        <h1>Enter Username</h1>
+        <input type="text" id="username-input" placeholder="Enter your username">
+        <button id="join-chat-btn">Join Chat</button>
+    </div>
+
+    <div id="chat-section" style="display: none;">
+        <div id="chat-window"></div>
+        <textarea id="message-input" placeholder="Type your message..."></textarea>
+        <button id="send-btn">Send</button>
+        <button id="delete-btn">Delete</button>
+       
+        <div id="username-display"></div>
+    </div>
+    
+
+    <script src="app.js">
+   
+
+    </script>
+</body>
+</html>
