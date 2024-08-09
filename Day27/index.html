@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+</head>
+<body style="background-color: #0c032f; color: #fff;">
+    <div style="display: flex; justify-content: center;">
+        <div style="text-align: center;" class="container">
+            <h1>Task Manager</h1>
+            <input type="text" id="title" placeholder="Title"><br><br>
+            <input type="text" id="description" placeholder="Description"><br><br>
+            <input type="date" id="dueDate" placeholder="Due Date"><br><br>
+            <button id="add">Add</button>
+            <button id="clear">Clear</button>
+            <button id="edit">Edit</button>
+
+            <ul id="list"></ul>
+        </div>
+    </div>
+    <script>
+        // get elements
+        const titleInput = document.getElementById('title');
+        const descriptionInput = document.getElementById('description');
+        const dueDateInput = document.getElementById('dueDate');
+        const add = document.getElementById('add');
+        const clear = document.getElementById('clear');
+        const edit = document.getElementById('edit');
+        const list = document.getElementById('list');
+
+        // add task
+        add.addEventListener('click', function() {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <strong>Title:</strong> ${titleInput.value}<br>
+                <strong>Description:</strong> ${descriptionInput.value}<br>
+                <strong>Due Date:</strong> ${dueDateInput.value}
+            `;
+            list.appendChild(li);
+            titleInput.value = '';
+            descriptionInput.value = '';
+            dueDateInput.value = '';
+        });
+
+        clear.addEventListener('click', function() {
+            list.innerHTML = '';
+        });
+
+        edit.addEventListener('click', function() {
+            // This is where you would implement the edit functionality
+            // For now, it clears the list and adds a new task
+            list.innerHTML = '';
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <strong>Title:</strong> ${titleInput.value}<br>
+                <strong>Description:</strong> ${descriptionInput.value}<br>
+                <strong>Due Date:</strong> ${dueDateInput.value}
+            `;
+            list.appendChild(li);
+            titleInput.value = '';
+            descriptionInput.value = '';
+            dueDateInput.value = '';
+        });
+    </script>
+</body>
+</html>
