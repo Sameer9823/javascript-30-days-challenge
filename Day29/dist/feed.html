@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./output.css">
+    <style>
+        .feed {
+            margin: 2rem auto;
+            max-width: 400px;
+            max-height: 400px;
+        }
+
+        .post {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .post img {
+          
+            height: 300px;
+        }
+
+        .post video {
+          
+            height: 300px;
+        }
+
+        .post-actions {
+            margin-top: 1rem;
+        }
+
+        .post-actions button {
+            margin-right: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar bg-base-100 shadow-lg">
+        <div class="flex-1">
+          <a class="btn btn-ghost text-xl">Social Media</a>
+        </div>
+        <div class="flex-none gap-2">
+          <div class="form-control">
+            <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+          </div>
+          <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+              <div class="w-10 rounded-full">
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+              </div>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+              <li>
+                <a class="justify-between">
+                  Profile
+                  <span class="badge">New</span>
+                </a>
+              </li>
+              <li><a>Settings</a></li>
+              <li><a>Logout</a></li>
+            </ul>
+          </div>
+        </div>
+    </div>
+
+    <div class="feed shadow-lg pt-[2rem] h-[400px] bg-base-100" id="feed">
+        <h2 class="text-center">Feed</h2>
+        <!-- Posts will be dynamically added here -->
+    </div>
+
+    <script>
+      fetch('./post.json')
+        .then(response => response.json())
+        .then(posts => {
+            const feed = document.getElementById('feed');
+
+            posts.forEach(post => {
+                const postDiv = document.createElement('div');
+                postDiv.classList.add('post');
+                
+                let mediaHtml = '';
+                if (post.image) {
+                    mediaHtml = `<img src="${post.image}" class="w-full" alt="Post Image" />`;
+                } else if (post.video) {
+                    mediaHtml = `<video controls src="${post.video}" class="w-full" alt="Post Video"></video>`;
+                }
+
+                postDiv.innerHTML = `
+                    <h3>Name: ${post.name}</h3>
+                    <p>Description: ${post.text}</p>
+                    ${mediaHtml}
+                    <div class="post-actions">
+                        <button class="like-btn">Like (<span class="like-count">0</span>)</button>
+                        <button class="comment-btn">Comment</button>
+                    </div>
+                    <div class="comments"></div>
+                `;
+                
+                feed.appendChild(postDiv);
+
+                // Like button functionality
+                const likeBtn = postDiv.querySelector('.like-btn');
+                const likeCount = postDiv.querySelector('.like-count');
+                let likes = 0;
+                likeBtn.addEventListener('click', () => {
+                    likes += 1;
+                    likeCount.textContent = likes;
+                });
+
+                // Comment button functionality
+                const commentBtn = postDiv.querySelector('.comment-btn');
+                const commentsDiv = postDiv.querySelector('.comments');
+                commentBtn.addEventListener('click', () => {
+                    const comment = prompt('Enter your comment:');
+                    if (comment) {
+                        const commentP = document.createElement('p');
+                        commentP.textContent = comment;
+                        commentsDiv.appendChild(commentP);
+                    }
+                });
+            });
+        })
+        .catch(error => console.error('Error loading posts:', error));
+    </script>
+</body>
+</html>

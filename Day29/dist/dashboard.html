@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./output.css">
+    <style>
+        .post-form {
+            margin: 2rem auto;
+            max-width: 600px;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            
+        }
+
+        .post-form input[type="text"],
+        .post-form textarea,
+        .post-form input[type="file"] {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .post-form button {
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .post-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .feed {
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+
+        .post {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            
+        }
+
+        .post img {
+            max-width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar bg-base-100 shadow-lg fixed z-5">
+        <div class="flex-1">
+          <a class="btn btn-ghost text-xl">Social Media</a>
+        </div>
+        <div class="flex-none gap-2">
+          <div class="form-control">
+            <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+          </div>
+          <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+              <div class="w-10 rounded-full">
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+              </div>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+              <li>
+                <a class="justify-between">
+                  Profile
+                  <span class="badge">New</span>
+                </a>
+               
+              </li>
+              <li><a>Settings</a></li>
+              <li><a>Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pt-[5rem]">
+
+        <div class="post-form bg-base-200 text-white shadow-2xl">
+          <h2>Create a New Post</h2>
+          <form class="bg-base-100" id="postForm">
+              <label for="Name">Name</label>
+              <input type="text" id="Name" placeholder="Name" required />
+              
+              <label for="postText">Post Details</label>
+              <textarea id="postText" rows="4" placeholder="What's on your mind?" required></textarea>
+              
+              <label for="postImage">Post Image</label>
+              <input type="file" id="postImage" accept="image/*" />
+              
+              <label for="postVideo">Post Video</label>
+              <input type="file" id="postVideo" accept="video/*" />
+              
+              <button type="submit">Submit Post</button>
+          </form>
+      </div>
+    </div>
+
+    <!-- Feed Section -->
+    <div class="feed shadow-lg  bg-base-100" id="feed">
+        <h2>Feed</h2>
+        <!-- Posts will be dynamically added here -->
+    </div>
+    <div class="text-center mt[8rem]">
+
+        <button id="feeds" class="btn" type="submit">feeds</button>
+    </div>
+
+    
+    <script>
+        const postForm = document.getElementById('postForm');
+        const feed = document.getElementById('feed');
+        const posts = [];
+        const feeds = document.getElementById('feeds')
+        feeds.addEventListener('click' , function(){
+            window.location.href = './feed.html'
+        })
+    
+        postForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+    
+            const name = document.getElementById('Name').value;
+            const postText = document.getElementById('postText').value;
+            const postImage = document.getElementById('postImage').files[0];
+            const postVideo = document.getElementById('postVideo').files[0];
+    
+            const newPost = { name, text: postText };
+    
+            if (postImage) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    newPost.image = event.target.result;
+                    saveAndDisplayPost();
+                };
+                reader.readAsDataURL(postImage);
+            } else if (postVideo) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    newPost.video = event.target.result;
+                    saveAndDisplayPost();
+                };
+                reader.readAsDataURL(postVideo);
+            } else {
+                // No image or video, just save and display the text
+                saveAndDisplayPost();
+            }
+    
+            function saveAndDisplayPost() {
+                posts.push(newPost);
+                displayPosts();
+            }
+        });
+    
+        function displayPosts() {
+            feed.innerHTML = '<h2>Feed</h2>'; // Reset feed
+    
+            posts.forEach(post => {
+                const postDiv = document.createElement('div');
+                postDiv.classList.add('post');
+                let mediaHtml = '';
+                if (post.image) {
+                    mediaHtml = `<img src="${post.image}" alt="Post Image" />`;
+                } else if (post.video) {
+                    mediaHtml = `<video controls autoplay src="${post.video}" alt="Post Video"></video>`;
+                }
+                postDiv.innerHTML = `
+                    <h3>${post.name}</h3>
+                    <p>${post.text}</p>
+                    ${mediaHtml}
+                `;
+                feed.appendChild(postDiv);
+            });
+        }
+    
+        displayPosts();
+        
+    </script>
+    
+
+
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Alice",
+        "text": "This is a sample post.",
+        "image": "https://images.pexels.com/photos/27525165/pexels-photo-27525165/free-photo-of-a-woman-laying-down-on-a-piano-with-candles.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Bob",
+        "text": "Another example post.",
+        "image": "",
+        "video": "./vid1.mp4"
+    },
+    {
+        "name": "Charlie",
+        "text": "Just a text post.",
+        "image": "",
+        "video": "./vid2.mp4"
+    },
+    {
+        "name": "Diana",
+        "text": "A beautiful sunrise!",
+        "image": "https://images.pexels.com/photos/27495830/pexels-photo-27495830/free-photo-of-sophisticated-lifestyle-setting-with-jewelry-and-magazine.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Edward",
+        "text": "Check out this cool video!",
+        "image": "https://images.pexels.com/photos/26937707/pexels-photo-26937707/free-photo-of-washoe-lake-wild-horses.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "video": ""
+    },
+    {
+        "name": "Fiona",
+        "text": "Had a great day at the beach.",
+        "image": "https://images.pexels.com/photos/16879010/pexels-photo-16879010/free-photo-of-little-girl-in-traditional-clothing.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "George",
+        "text": "Here's a quick video tutorial.",
+        "image": "https://images.pexels.com/photos/27495791/pexels-photo-27495791/free-photo-of-processed-with-vsco-with-c1-preset.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    }
+]
