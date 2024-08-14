@@ -26,19 +26,145 @@
     {
         "name": "Edward",
         "text": "Check out this cool video!",
-        "image": "https://images.pexels.com/photos/26937707/pexels-photo-26937707/free-photo-of-washoe-lake-wild-horses.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "video": ""
+        "image": "",
+        "video": "./assets/reel.mp4"
     },
     {
         "name": "Fiona",
         "text": "Had a great day at the beach.",
-        "image": "https://images.pexels.com/photos/16879010/pexels-photo-16879010/free-photo-of-little-girl-in-traditional-clothing.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-        "video": ""
+        "image": "",
+        "video": "./assets/rel.mp4"
     },
     {
         "name": "George",
         "text": "Here's a quick video tutorial.",
-        "image": "https://images.pexels.com/photos/27495791/pexels-photo-27495791/free-photo-of-processed-with-vsco-with-c1-preset.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "image": "",
+        "video": "./assets/best.mp4"
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "video": ""
+    },
+    {
+        "name": "Hannah",
+        "text": "A day in the life.",
+        "image": "https://images.pexels.com/photos/7704832/pexels-photo-7704832.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
         "video": ""
     },
     {
